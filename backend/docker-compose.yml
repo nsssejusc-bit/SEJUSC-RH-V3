@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: teste-apresentacao
+    ports:
+      - "8084:8081"
+    volumes:
+      # Mount 1: Seu código-fonte, para você poder editar e ver as mudanças.
+      - .:/app
+      
+      # Mount 2: Um volume NOMEADO e PERSISTENTE apenas para a pasta de uploads.
+      # O Docker agora vai gerenciar essa pasta separadamente.
+      - backend_uploads:/app/uploads
+      
+    environment:
+      - PYTHONUNBUFFERED=1
+
+# Define o "Volume Nomeado" que será persistente
+volumes:
+  backend_uploads:
