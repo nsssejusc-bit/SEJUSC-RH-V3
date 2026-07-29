@@ -48,11 +48,8 @@ CORS(app, supports_credentials=True, origins=[
     "http://localhost:5173",
     "http://12.90.4.98",                     # <--- adicionar o host usado em produção
     r"http://12\.90\.4\.\d+:8081",
-<<<<<<< HEAD
-	"http://rh.sejusc.local:8081"
-=======
-        "http://rh.sejusc.local:8081"
->>>>>>> 7091c56f467b9256e953e8cf471b890db009e292
+	"http://rh.sejusc.local:8081",
+        "http://rh.sejusc.local:8081",
 ])
 
 
