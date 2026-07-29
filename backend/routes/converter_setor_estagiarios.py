@@ -342,7 +342,7 @@ def cria_dias_da_celula_estagiario(doc, ano, mes_numerico, estagiario, feriados,
     # CHAMA A FUNÇÃO DE CÁLCULO DE PERÍODO (CORREÇÃO DE ARGUMENTOS)
     periodo_formatado, dias_periodo = calcula_periodo_estagiario(ano, mes_numerico)
 
-    linha_inicial = 7
+    linha_inicial = 8
     table = doc.tables[0]
     
     # formata estilo das linhas padrão

@@ -359,7 +359,7 @@ def cria_dias_da_celula(doc, ano, mes_numerico, estagiario, feriados, pontos_fac
 
         return dias_periodo, data_inicio, data_fim
 
-    linha_inicial = 7
+    linha_inicial = 8
     table = doc.tables[0]
 
     # formata estilo das linhas padrão
