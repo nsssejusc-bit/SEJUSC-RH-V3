@@ -51,15 +51,15 @@ CORS(app, supports_credentials=True, origins=[
 ])
 
 
-@app.after_request
-def after_request(response):
-    origin = request.headers.get('Origin')
-    if origin in ["http://localhost:5173"] or (origin and origin.startswith("http://12.90.4.")):
-        response.headers['Access-Control-Allow-Origin'] = origin
-        response.headers['Access-Control-Allow-Credentials'] = 'true'
-        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, OPTIONS, DELETE'
-        response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
-    return response
+# @app.after_request
+# def after_request(response):
+#     origin = request.headers.get('Origin')
+#     if origin in ["http://localhost:5173"] or (origin and origin.startswith("http://12.90.4.")):
+#         response.headers['Access-Control-Allow-Origin'] = origin
+#         response.headers['Access-Control-Allow-Credentials'] = 'true'
+#         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, OPTIONS, DELETE'
+#         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+#     return response
 
 login_manager.init_app(app)
 app.secret_key = 'sa3fab861d0da4efd62c6f2aff0649b5e'
