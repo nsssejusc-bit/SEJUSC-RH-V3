@@ -273,7 +273,7 @@ def cria_dias_da_celula(doc, quantidade_dias_no_mes, ano, mes_numerico, funciona
     while len(table.rows) < target_total_rows_in_table:
         new_row = table.add_row()
    
-        new_row.height = Cm(0.48) 
+        new_row.height = Cm(0.43) 
         new_row.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
         for cell in new_row.cells:
             p = cell.paragraphs[0] if cell.paragraphs else cell.add_paragraph()
@@ -285,7 +285,7 @@ def cria_dias_da_celula(doc, quantidade_dias_no_mes, ano, mes_numerico, funciona
         row = table.rows[linha_inicial + i]
         
        
-        row.height = Cm(0.48)
+        row.height = Cm(0.43)
         row.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
         
         data_atual_obj = date(ano, mes_numerico, dia)

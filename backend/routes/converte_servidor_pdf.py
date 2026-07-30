@@ -265,10 +265,10 @@ def cria_dias_da_celula(doc, quantidade_dias_no_mes, ano, mes_numerico, funciona
         print("AVISO: Nenhum tabela encontrada no documento.")
         return
     
-    table = doc.tables[0] 
+    table = doc.tables[0]
 
-    for row in table.rows:
-        row.height = Cm(0.5)
+    for idx, row in enumerate(table.rows):
+        row.height = Cm(0.5) if idx < linha_inicial else Cm(0.43)
         row.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
         for cell in row.cells:
             for paragraph in cell.paragraphs:
