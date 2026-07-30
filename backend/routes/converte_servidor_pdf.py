@@ -335,7 +335,7 @@ def cria_dias_da_celula(doc, quantidade_dias_no_mes, ano, mes_numerico, funciona
 
         if texto_status: 
             set_row_background(row, 'C5E0B4') # VERDE
-            for j in [2, 5, 9, 13]: 
+            for j in [2, 6, 8, 12]: 
                 if j < len(row.cells):
                     cell = row.cells[j]
                     cell.text = texto_status
@@ -351,7 +351,7 @@ def cria_dias_da_celula(doc, quantidade_dias_no_mes, ano, mes_numerico, funciona
      
         if data_atual in pontos_facultativos and dia_semana not in [5, 6]:
             set_row_background(row, 'C5E0B4')  # 
-            for j in [2, 5, 9, 13]:
+            for j in [2, 6, 8, 12]:
                 if j < len(row.cells):
                     cell = row.cells[j]
                     cell.text = "PONTO FACULTATIVO"
@@ -367,7 +367,7 @@ def cria_dias_da_celula(doc, quantidade_dias_no_mes, ano, mes_numerico, funciona
 
         elif data_atual in feriados and dia_semana not in [5, 6]:
             set_row_background(row, 'C5E0B4') # VERDE
-            for j in [2, 5, 9, 13]:
+            for j in [2, 6, 8, 12]:
                 if j < len(row.cells):
                     cell = row.cells[j]
                     cell.text = "FERIADO"
@@ -392,7 +392,7 @@ def cria_dias_da_celula(doc, quantidade_dias_no_mes, ano, mes_numerico, funciona
             if isinstance(ferias_inicio, date) and isinstance(ferias_final, date) and \
                (ferias_inicio <= data_atual <= ferias_final and dia_semana not in [5, 6]):
                 set_row_background(row, 'C5E0B4') # VERDE   
-                for j in [2, 5, 9, 13]:
+                for j in [2, 6, 8, 12]:
                     if j < len(row.cells):
                         cell = row.cells[j]
                         cell.text = "FÉRIAS"

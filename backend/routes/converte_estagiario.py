@@ -426,7 +426,7 @@ def cria_dias_da_celula(doc, ano, mes_numerico, estagiario, feriados, pontos_fac
 
         if texto:
             set_row_background(row, 'C5E0B4')
-            celulas_para_marcar = [2, 5, 9, 13]
+            celulas_para_marcar = [2, 5, 7, 11]
             for j in celulas_para_marcar:
                 if j < len(row.cells):
                     cell = row.cells[j]
