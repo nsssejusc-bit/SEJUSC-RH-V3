@@ -457,34 +457,15 @@ def cria_dias_da_celula(doc, ano, mes_numerico, estagiario, feriados, pontos_fac
 # -----------------------------------------------------------------------------------------------------------------
 
 def muda_texto_documento_periodo(doc, campo, valor):
-    from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
-    from docx.shared import Pt
-
-    print(f"DEBUG: Aplicando fonte pequena para campo: {campo} com valor: {valor}")
+    from utils.muda_texto_documento import _reescreve_paragrafo
 
     for p in doc.paragraphs:
         if campo in p.text:
-            print(f"DEBUG: Encontrou campo {campo} em parágrafo")
-            novo_texto = p.text.replace(campo, valor)
-            p.clear()
-            run = p.add_run(novo_texto)
-            run.font.size = Pt(12)
-            run.font.name = "Calibri"
-            run.font.bold = False
-            p.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-            print(f"DEBUG: Aplicou fonte {run.font.size} no parágrafo")
+            _reescreve_paragrafo(p, p.text.replace(campo, valor))
 
     for table in doc.tables:
         for row in table.rows:
             for cell in row.cells:
                 for p in cell.paragraphs:
                     if campo in p.text:
-                        print(f"DEBUG: Encontrou campo {campo} em célula de tabela")
-                        novo_texto = p.text.replace(campo, valor)
-                        p.clear()
-                        run = p.add_run(novo_texto)
-                        run.font.size = Pt(12)
-                        run.font.name = "Calibri"
-                        run.font.bold = False
-                        p.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-                        print(f"DEBUG: Aplicou fonte {run.font.size} na célula")
+                        _reescreve_paragrafo(p, p.text.replace(campo, valor))
