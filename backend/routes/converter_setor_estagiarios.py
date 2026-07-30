@@ -344,10 +344,11 @@ def cria_dias_da_celula_estagiario(doc, ano, mes_numerico, estagiario, feriados,
 
     linha_inicial = 8
     table = doc.tables[0]
-    
-    # formata estilo das linhas padrão
-    for row in table.rows:
-        row.height = Cm(0.55)
+
+    # formata estilo das linhas padrão (linhas de dia mais baixas para caber
+    # os até 31 dias na página sem empurrar o rodapé)
+    for idx, row in enumerate(table.rows):
+        row.height = Cm(0.55) if idx < linha_inicial else Cm(0.43)
         row.height_rule = WD_ROW_HEIGHT_RULE.EXACTLY
         for cell in row.cells:
             for paragraph in cell.paragraphs:
